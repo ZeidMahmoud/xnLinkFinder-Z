@@ -1,5 +1,5 @@
 """Technology stack fingerprinting."""
-from typing import List, Dict
+from typing import List, Dict, Set
 import logging
 
 logger = logging.getLogger(__name__)

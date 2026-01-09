@@ -1,5 +1,5 @@
 """Tor/Proxy rotation for stealth scanning."""
-from typing import List, Optional
+from typing import List, Optional, Dict
 import logging
 import random
 
