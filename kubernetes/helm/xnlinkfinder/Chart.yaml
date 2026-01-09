@@ -1,0 +1,13 @@
+apiVersion: v2
+name: xnlinkfinder
+description: A Helm chart for xnLinkFinder-Z endpoint discovery tool
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+keywords:
+  - security
+  - endpoint-discovery
+  - recon
+maintainers:
+  - name: xnLinkFinder-Z Team
+    email: support@xnlinkfinder.io
