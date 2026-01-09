@@ -7,3 +7,32 @@ xnlinkfinder.egg-info
 dist/
 build/
 __pycache__
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.pyc
+*.pyo
+*.pyd
+.tox/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Documentation
+site/
+
+# Temporary files
+*.tmp
+*.log
+/tmp/
+
+# Generated files
+nuclei-templates/
+graph_output/
+metrics.db

@@ -1,0 +1,55 @@
+# JavaScript Analysis Preset
+# Deep JavaScript file analysis
+
+name: "JavaScript Analysis"
+description: "Deep analysis of JavaScript files"
+
+settings:
+  # Crawling
+  depth: 3
+  timeout: 45
+  max_threads: 10
+  follow_redirects: true
+  
+  # Discovery
+  wayback: true
+  commoncrawl: true
+  github_search: true
+  
+  # Filters
+  include_subdomains: true
+  scope_only: true
+  include_only_extensions:
+    - .js
+    - .jsx
+    - .ts
+    - .tsx
+    - .json
+  
+  # Output
+  verbose: true
+  save_all: true
+  deduplicate: true
+
+javascript:
+  analyze_depth: 3
+  extract_apis: true
+  extract_secrets: true
+  extract_comments: true
+  deobfuscate: true
+  
+patterns:
+  - /**/*.js
+  - /**/*.jsx
+  - /**/*.ts
+  - /**/*.json
+  - /static/js/
+  - /assets/js/
+  - /bundle/
+
+secrets:
+  scan_for:
+    - api_keys
+    - tokens
+    - passwords
+    - credentials

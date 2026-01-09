@@ -1,0 +1,14 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 📖 Documentation
+    url: https://github.com/ZeidMahmoud/xnLinkFinder-Z/blob/main/README.md
+    about: Check out the comprehensive documentation
+  - name: 💬 Discussions
+    url: https://github.com/ZeidMahmoud/xnLinkFinder-Z/discussions
+    about: Ask questions and discuss features with the community
+  - name: 🔒 Security Policy
+    url: https://github.com/ZeidMahmoud/xnLinkFinder-Z/blob/main/SECURITY.md
+    about: Report security vulnerabilities privately
+  - name: 🤝 Contributing Guide
+    url: https://github.com/ZeidMahmoud/xnLinkFinder-Z/blob/main/CONTRIBUTING.md
+    about: Learn how to contribute to the project

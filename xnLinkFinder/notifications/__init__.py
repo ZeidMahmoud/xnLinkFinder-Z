@@ -1,16 +1,10 @@
 """
-Notification system for xnLinkFinder-Z.
-
-This module provides real-time notification capabilities for:
-- Slack notifications
-- Discord notifications
-- Telegram notifications
-- Custom webhook integrations
+Notifications module for xnLinkFinder
+Send notifications to various platforms
 """
 
-__all__ = [
-    'notifier',
-    'slack',
-    'discord',
-    'telegram',
-]
+from .slack import SlackNotifier
+from .discord import DiscordNotifier
+from .webhook import WebhookNotifier
+
+__all__ = ['SlackNotifier', 'DiscordNotifier', 'WebhookNotifier']

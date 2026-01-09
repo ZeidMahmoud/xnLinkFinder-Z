@@ -1,0 +1,112 @@
+site_name: xnLinkFinder-Z Documentation
+site_description: Advanced endpoint discovery and security testing tool
+site_author: xnl-h4ck3r, Zeid Mahmoud
+site_url: https://zeidmahmoud.github.io/xnLinkFinder-Z/
+
+repo_name: ZeidMahmoud/xnLinkFinder-Z
+repo_url: https://github.com/ZeidMahmoud/xnLinkFinder-Z
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.annotate
+    - content.code.copy
+  icon:
+    repo: fontawesome/brands/github
+
+nav:
+  - Home: index.md
+  - Getting Started:
+      - Installation: installation.md
+      - Quick Start: quickstart.md
+      - Configuration: configuration.md
+  - Features:
+      - Overview: features/overview.md
+      - Nuclei Templates: features/nuclei-templates.md
+      - Scope Intelligence: features/scope-intelligence.md
+      - Link Graphs: features/link-graphs.md
+      - Presets: features/presets.md
+  - Usage:
+      - Command Line: usage/cli.md
+      - Presets: usage/presets.md
+      - Output Formats: usage/output.md
+  - Advanced:
+      - API Reference: api/reference.md
+      - Integrations: advanced/integrations.md
+      - Custom Plugins: advanced/plugins.md
+  - Tutorials:
+      - Bug Bounty Workflow: tutorials/bug-bounty.md
+      - API Discovery: tutorials/api-discovery.md
+      - Pentest Methodology: tutorials/pentest.md
+  - Reference:
+      - Cheat Sheet: CHEATSHEET.md
+      - FAQ: faq.md
+      - Changelog: ../CHANGELOG.md
+  - Contributing:
+      - Guidelines: ../CONTRIBUTING.md
+      - Security: ../SECURITY.md
+      - Code of Conduct: ../CODE_OF_CONDUCT.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - toc:
+      permalink: true
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - minify:
+      minify_html: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ZeidMahmoud/xnLinkFinder-Z
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/xnl_h4ck3r
+  analytics:
+    provider: google
+    property: G-XXXXXXXXXX
+  version:
+    provider: mike
+
+copyright: Copyright &copy; 2024 xnl-h4ck3r, Zeid Mahmoud

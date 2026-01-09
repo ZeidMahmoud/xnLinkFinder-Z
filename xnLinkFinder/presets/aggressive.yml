@@ -1,0 +1,44 @@
+# Aggressive Preset
+# Fast and thorough scanning
+
+name: "Aggressive Scan"
+description: "Fast and comprehensive scanning"
+
+settings:
+  # Crawling
+  depth: 10
+  timeout: 120
+  max_threads: 50
+  follow_redirects: true
+  
+  # Discovery
+  wayback: true
+  commoncrawl: true
+  github_search: true
+  google_dorks: true
+  archive_today: true
+  
+  # Filters
+  include_subdomains: true
+  scope_only: false
+  exclude_extensions: []
+  
+  # Output
+  verbose: true
+  save_all: true
+  deduplicate: true
+  generate_report: true
+
+targets:
+  - /
+
+scanners:
+  enabled:
+    - all
+  
+fuzzing:
+  enabled: true
+  wordlists:
+    - common
+    - api
+    - admin

@@ -1,16 +1,9 @@
 """
-Third-party tool integrations for xnLinkFinder-Z.
-
-This module provides integration with popular security testing tools including:
-- Nuclei template generation
-- Burp Suite API integration
-- Caido proxy integration
-- OWASP ZAP integration
+Integrations module for xnLinkFinder
+Integrate with popular security tools
 """
 
-__all__ = [
-    'nuclei_generator',
-    'burp_integration',
-    'caido_integration',
-    'zap_integration',
-]
+from .nuclei_integration import NucleiIntegration
+from .ffuf_integration import FFUFIntegration
+
+__all__ = ['NucleiIntegration', 'FFUFIntegration']
