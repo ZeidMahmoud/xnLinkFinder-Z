@@ -79,3 +79,24 @@ pyvis>=0.3.0
 
 # Kubernetes
 kubernetes>=27.0.0
+
+# New Ultimate Enhancement Features
+
+# Security Scanners
+pyjwt>=2.8.0
+# dnspython already included above
+
+# Testing Tools
+websocket-client>=1.6.0
+# aiohttp already included above
+
+# OSINT
+googlesearch-python>=1.2.0
+
+# Server Mode (FastAPI already included)
+python-jose>=3.3.0
+passlib>=1.7.4
+
+# UI Enhancements
+questionary>=2.0.0
+prompt-toolkit>=3.0.0

@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  title: xnLinkFinder-Z API
+  version: 1.0.0
+  description: REST API for xnLinkFinder-Z endpoint discovery and security testing
+servers:
+  - url: http://localhost:8080
+paths:
+  /scan:
+    post:
+      summary: Start a new scan
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                  description: Target URL to scan
+                depth:
+                  type: integer
+                  description: Crawl depth
+                scan_cors:
+                  type: boolean
+                  description: Enable CORS scanning
+              required:
+                - url
+      responses:
+        '200':
+          description: Scan started
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  scan_id:
+                    type: string
+                  status:
+                    type: string
+  /scan/{scan_id}:
+    get:
+      summary: Get scan results
+      parameters:
+        - name: scan_id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Scan results
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  scan_id:
+                    type: string
+                  status:
+                    type: string
+                  results:
+                    type: array
+                    items:
+                      type: string

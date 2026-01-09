@@ -66,7 +66,7 @@ setup(
         "inflect>=7.3.0",
         "playwright>=1.40.0",
         "pypdf>=3.17.0",
-        # New advanced features dependencies
+        # Advanced features dependencies
         "aiohttp>=3.9.0",
         "aiodns>=3.1.0",
         "rich>=13.0.0",
@@ -79,6 +79,16 @@ setup(
         "scikit-learn>=1.3.0",
         "numpy>=1.24.0",
         "python-dateutil>=2.8.0",
+        # Ultimate enhancement dependencies
+        "pyjwt>=2.8.0",
+        "dnspython>=2.4.0",
+        "websocket-client>=1.6.0",
+        "fastapi>=0.100.0",
+        "uvicorn>=0.23.0",
+        "python-jose>=3.3.0",
+        "passlib>=1.7.4",
+        "questionary>=2.0.0",
+        "prompt-toolkit>=3.0.0",
     ],
     entry_points={
         "console_scripts": [
