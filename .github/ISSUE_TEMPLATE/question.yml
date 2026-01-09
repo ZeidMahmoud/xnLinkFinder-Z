@@ -1,0 +1,62 @@
+name: Question
+description: Ask a question about xnLinkFinder
+title: "[Question]: "
+labels: ["question"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question? We're here to help! Please provide as much context as possible.
+
+  - type: textarea
+    id: question
+    attributes:
+      label: Your Question
+      description: What would you like to know?
+      placeholder: "How do I..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Provide additional context for your question
+      placeholder: "I'm trying to... and I want to..."
+
+  - type: textarea
+    id: attempted
+    attributes:
+      label: What Have You Tried?
+      description: What solutions have you already attempted?
+      placeholder: "I tried... but..."
+
+  - type: textarea
+    id: code
+    attributes:
+      label: Relevant Code/Commands
+      description: If applicable, share the code or commands you're working with
+      placeholder: "xnLinkFinder -i https://example.com ..."
+      render: shell
+
+  - type: dropdown
+    id: docs
+    attributes:
+      label: Documentation Check
+      description: Have you checked the documentation?
+      options:
+        - "Yes, but couldn't find the answer"
+        - "No, I haven't checked yet"
+        - "The documentation is unclear"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I have searched existing issues and discussions
+          required: true
+        - label: My question is specific to xnLinkFinder (not general programming)
+          required: true
