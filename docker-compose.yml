@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  xnlinkfinder:
+    build: .
+    image: xnlinkfinder-z:latest
+    container_name: xnlinkfinder-z
+    volumes:
+      - ./output:/output
+      - ./config:/root/.config/xnLinkFinder
+    environment:
+      - PYTHONUNBUFFERED=1
+    command: --help
+
+  # Service for running with database
+  xnlinkfinder-db:
+    build: .
+    image: xnlinkfinder-z:latest
+    container_name: xnlinkfinder-z-db
+    volumes:
+      - ./output:/output
+      - ./config:/root/.config/xnLinkFinder
+      - ./data:/data
+    environment:
+      - PYTHONUNBUFFERED=1
+      - DATABASE_PATH=/data/xnlinkfinder.db
+    command: --help
+
+  # Service for scheduled scans
+  xnlinkfinder-cron:
+    build: .
+    image: xnlinkfinder-z:latest
+    container_name: xnlinkfinder-z-cron
+    volumes:
+      - ./output:/output
+      - ./config:/root/.config/xnLinkFinder
+      - ./targets:/targets
+      - ./cron:/etc/cron.d
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
+    command: cron -f

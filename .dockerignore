@@ -1,0 +1,48 @@
+# Build artifacts
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Output files
+output.txt
+parameters.txt
+wordlist.txt
+oos.txt
+*.db
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Test and coverage
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Git
+.git/
+.gitignore

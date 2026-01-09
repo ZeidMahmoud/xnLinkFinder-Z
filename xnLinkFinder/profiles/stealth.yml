@@ -1,0 +1,71 @@
+# Stealth Scan Profile
+# For low and slow scanning to avoid detection
+
+scan:
+  name: "Stealth"
+  description: "Low and slow scanning to avoid detection"
+
+# Request settings
+requests:
+  timeout: 20
+  retries: 1
+  max_concurrent: 5
+  rate_limit: 2  # 2 requests per second
+  user_agents:
+    - desktop
+  randomize_user_agent: true
+  delay_between_requests: 1  # seconds
+
+# Crawling settings
+crawl:
+  depth: 3
+  follow_redirects: true
+  max_response_size: 50  # MB
+  include_static_resources: false
+
+# Discovery features
+discovery:
+  graphql: true
+  openapi: true
+  websocket: false
+  sourcemaps: false
+  cloud_services: true
+  browser_analysis: false
+  heap_extraction: false
+
+# Analysis features
+analysis:
+  classify_links: true
+  vulnerability_hints: true
+  secrets_detection: true
+  ai_analysis: false
+
+# Output settings
+output:
+  formats:
+    - json
+  include_metadata: false
+  include_timestamps: false
+
+# Filtering
+filtering:
+  exclude_extensions:
+    - .css
+    - .jpg
+    - .jpeg
+    - .png
+    - .gif
+    - .svg
+    - .ico
+    - .woff
+    - .woff2
+    - .ttf
+  min_priority: "medium"
+
+# Advanced features
+advanced:
+  use_cache: true
+  use_database: false
+  memory_threshold: 95
+  adaptive_rate_limiting: true
+  jitter: true  # Add random jitter to requests

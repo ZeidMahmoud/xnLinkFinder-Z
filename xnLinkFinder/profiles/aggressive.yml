@@ -1,0 +1,67 @@
+# Aggressive Scan Profile
+# For thorough scanning with maximum coverage
+
+scan:
+  name: "Aggressive"
+  description: "Thorough scanning with maximum coverage and depth"
+
+# Request settings
+requests:
+  timeout: 30
+  retries: 3
+  max_concurrent: 50
+  rate_limit: 0  # No rate limiting
+  user_agents:
+    - desktop
+    - mobile
+  
+# Crawling settings
+crawl:
+  depth: 10
+  follow_redirects: true
+  max_response_size: 200  # MB
+  include_static_resources: true
+
+# Discovery features
+discovery:
+  graphql: true
+  openapi: true
+  websocket: true
+  sourcemaps: true
+  cloud_services: true
+  browser_analysis: true
+  heap_extraction: true
+
+# Analysis features
+analysis:
+  classify_links: true
+  vulnerability_hints: true
+  secrets_detection: true
+  ai_analysis: false
+
+# Output settings
+output:
+  formats:
+    - json
+    - markdown
+    - sarif
+  include_metadata: true
+  include_timestamps: true
+
+# Filtering
+filtering:
+  exclude_extensions:
+    - .css
+    - .jpg
+    - .jpeg
+    - .png
+    - .gif
+    - .svg
+  min_priority: "low"
+
+# Advanced features
+advanced:
+  use_cache: true
+  use_database: true
+  memory_threshold: 90
+  adaptive_rate_limiting: true
