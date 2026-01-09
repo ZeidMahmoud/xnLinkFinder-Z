@@ -1,39 +1,82 @@
-"""Slack notification provider for xnLinkFinder-Z."""
-from typing import Dict, Optional
+"""
+Slack Notifications
+Send scan results to Slack
+"""
+
 import requests
-import logging
-from .notifier import BaseNotifier, NotificationLevel
+import json
+from typing import Dict, Optional
 
-logger = logging.getLogger(__name__)
 
-class SlackNotifier(BaseNotifier):
-    """Send notifications to Slack."""
+class SlackNotifier:
+    """Send notifications to Slack"""
     
-    def _send(self, message: str, level: NotificationLevel) -> bool:
-        """Send message to Slack webhook."""
+    def __init__(self, webhook_url: str):
+        self.webhook_url = webhook_url
+    
+    def send(
+        self,
+        message: str,
+        title: Optional[str] = None,
+        color: str = "good",
+        fields: Optional[Dict] = None
+    ) -> bool:
+        """Send a message to Slack"""
+        payload = {
+            "attachments": [{
+                "color": color,
+                "title": title or "xnLinkFinder Notification",
+                "text": message,
+                "footer": "xnLinkFinder-Z",
+                "ts": int(__import__('time').time())
+            }]
+        }
+        
+        if fields:
+            payload["attachments"][0]["fields"] = [
+                {"title": k, "value": str(v), "short": True}
+                for k, v in fields.items()
+            ]
+        
         try:
-            color = {
-                NotificationLevel.CRITICAL: "#ff0000",
-                NotificationLevel.HIGH: "#ff6600",
-                NotificationLevel.MEDIUM: "#ffcc00",
-                NotificationLevel.LOW: "#00ff00"
-            }.get(level, "#808080")
-            
-            payload = {
-                "attachments": [{
-                    "color": color,
-                    "text": message,
-                    "title": f"xnLinkFinder-Z Alert - {level.value.upper()}"
-                }]
-            }
-            
-            response = requests.post(self.webhook_url, json=payload)
+            response = requests.post(
+                self.webhook_url,
+                data=json.dumps(payload),
+                headers={"Content-Type": "application/json"},
+                timeout=10
+            )
             return response.status_code == 200
-        except Exception as e:
-            logger.error(f"Slack notification failed: {e}")
+        except Exception:
             return False
-
-def notify_slack(message: str, webhook_url: str, level: str = "medium") -> bool:
-    """Convenience function for Slack notifications."""
-    notifier = SlackNotifier(webhook_url)
-    return notifier.notify(message, NotificationLevel(level))
+    
+    def send_scan_complete(
+        self,
+        target: str,
+        endpoints_found: int,
+        duration: float
+    ) -> bool:
+        """Send scan completion notification"""
+        return self.send(
+            message=f"Scan completed for {target}",
+            title="✅ Scan Complete",
+            color="good",
+            fields={
+                "Target": target,
+                "Endpoints Found": endpoints_found,
+                "Duration": f"{duration:.2f}s"
+            }
+        )
+    
+    def send_critical_finding(
+        self,
+        target: str,
+        finding_type: str,
+        details: str
+    ) -> bool:
+        """Send critical finding notification"""
+        return self.send(
+            message=details,
+            title=f"🚨 Critical Finding: {finding_type}",
+            color="danger",
+            fields={"Target": target}
+        )
