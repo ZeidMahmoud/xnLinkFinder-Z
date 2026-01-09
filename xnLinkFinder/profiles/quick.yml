@@ -1,0 +1,70 @@
+# Quick Scan Profile
+# For fast scanning with basic features
+
+scan:
+  name: "Quick"
+  description: "Fast scanning with essential features only"
+
+# Request settings
+requests:
+  timeout: 10
+  retries: 0
+  max_concurrent: 25
+  rate_limit: 10  # 10 requests per second
+  user_agents:
+    - desktop
+
+# Crawling settings
+crawl:
+  depth: 2
+  follow_redirects: true
+  max_response_size: 50  # MB
+  include_static_resources: false
+
+# Discovery features
+discovery:
+  graphql: false
+  openapi: true
+  websocket: false
+  sourcemaps: false
+  cloud_services: false
+  browser_analysis: false
+  heap_extraction: false
+
+# Analysis features
+analysis:
+  classify_links: true
+  vulnerability_hints: false
+  secrets_detection: false
+  ai_analysis: false
+
+# Output settings
+output:
+  formats:
+    - json
+  include_metadata: false
+  include_timestamps: true
+
+# Filtering
+filtering:
+  exclude_extensions:
+    - .css
+    - .js
+    - .jpg
+    - .jpeg
+    - .png
+    - .gif
+    - .svg
+    - .ico
+    - .woff
+    - .woff2
+    - .ttf
+    - .eot
+  min_priority: "high"
+
+# Advanced features
+advanced:
+  use_cache: true
+  use_database: false
+  memory_threshold: 95
+  adaptive_rate_limiting: false
