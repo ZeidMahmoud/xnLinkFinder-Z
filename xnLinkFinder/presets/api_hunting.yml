@@ -1,0 +1,59 @@
+# API Hunting Preset
+# Focused on discovering API endpoints
+
+name: "API Hunter"
+description: "Specialized configuration for API endpoint discovery"
+
+settings:
+  # Crawling
+  depth: 4
+  timeout: 30
+  max_threads: 15
+  follow_redirects: true
+  
+  # Discovery
+  wayback: true
+  commoncrawl: true
+  github_search: true
+  
+  # Filters
+  include_subdomains: true
+  scope_only: true
+  exclude_extensions:
+    - .html
+    - .htm
+    - .jpg
+    - .png
+    - .gif
+    - .css
+  
+  # Output
+  verbose: true
+  save_all: true
+  deduplicate: true
+
+targets:
+  # API-focused paths
+  - /api/
+  - /v1/
+  - /v2/
+  - /v3/
+  - /rest/
+  - /graphql/
+  - /swagger/
+  - /openapi/
+  - /docs/
+
+patterns:
+  # API-specific patterns
+  - /api/v*/
+  - /rest/v*/
+  - /**/swagger.json
+  - /**/openapi.json
+  - /**/api-docs
+
+scanners:
+  enabled:
+    - graphql
+    - jwt
+    - api_fuzzing

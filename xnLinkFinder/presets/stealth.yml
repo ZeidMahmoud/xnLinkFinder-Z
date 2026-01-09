@@ -1,0 +1,40 @@
+# Stealth Preset
+# Low and slow to avoid detection
+
+name: "Stealth Mode"
+description: "Slow and careful scanning to avoid detection"
+
+settings:
+  # Crawling
+  depth: 2
+  timeout: 45
+  max_threads: 2
+  follow_redirects: true
+  delay_between_requests: 3
+  
+  # Discovery
+  wayback: true
+  commoncrawl: false
+  github_search: false
+  
+  # Filters
+  include_subdomains: false
+  scope_only: true
+  exclude_extensions:
+    - .jpg
+    - .png
+    - .gif
+    - .css
+  
+  # Output
+  verbose: false
+  save_all: true
+  deduplicate: true
+
+headers:
+  User-Agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+  Accept: "text/html,application/xhtml+xml"
+
+rate_limit:
+  requests_per_second: 0.5
+  concurrent_requests: 1

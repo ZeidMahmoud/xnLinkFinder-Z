@@ -1,0 +1,53 @@
+# Bug Bounty Hunting Preset
+# Optimized for finding vulnerabilities in bug bounty programs
+
+name: "Bug Bounty Hunter"
+description: "Balanced configuration for bug bounty hunting"
+
+settings:
+  # Crawling
+  depth: 3
+  timeout: 30
+  max_threads: 10
+  follow_redirects: true
+  
+  # Discovery
+  wayback: true
+  commoncrawl: true
+  github_search: true
+  
+  # Filters
+  include_subdomains: true
+  scope_only: true
+  exclude_extensions:
+    - .jpg
+    - .png
+    - .gif
+    - .css
+    - .woff
+  
+  # Output
+  verbose: true
+  save_all: true
+  deduplicate: true
+
+targets:
+  # High-value endpoints
+  - /api/
+  - /admin/
+  - /dashboard/
+  - /user/
+  - /account/
+  - /auth/
+  - /login/
+  - /upload/
+  - /download/
+  
+scanners:
+  enabled:
+    - sqli
+    - xss
+    - idor
+    - ssrf
+    - lfi
+    - open_redirect
