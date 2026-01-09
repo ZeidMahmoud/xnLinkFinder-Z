@@ -1,0 +1,20 @@
+{
+  "name": "xnlinkfinder-vscode",
+  "displayName": "xnLinkFinder",
+  "description": "Find endpoints while coding with xnLinkFinder-Z",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": ["onCommand:xnlinkfinder.findEndpoints"],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "xnlinkfinder.findEndpoints",
+        "title": "Find Endpoints with xnLinkFinder"
+      }
+    ]
+  }
+}

@@ -1,0 +1,38 @@
+.TH XNLINKFINDER 1 "January 2026" "xnLinkFinder-Z 7.18" "User Commands"
+.SH NAME
+xnLinkFinder \- Advanced endpoint discovery and security testing tool
+.SH SYNOPSIS
+.B xnLinkFinder
+[\fIOPTION\fR]... \fI-i INPUT\fR
+.SH DESCRIPTION
+xnLinkFinder-Z is an advanced tool for discovering endpoints, analyzing APIs, and performing security testing.
+.SH OPTIONS
+.TP
+.BR \-i ", " \-\-input =\fIURL/FILE\fR
+Input URL, file of URLs, directory, or Burp/ZAP/Caido file
+.TP
+.BR \-o ", " \-\-output =\fIFILE\fR
+Output file for discovered links (default: output.txt)
+.TP
+.BR \-\-scan\-cors
+Scan for CORS misconfigurations
+.TP
+.BR \-\-scan\-jwt
+Analyze JWT tokens
+.TP
+.BR \-\-server
+Start REST API server mode
+.SH EXAMPLES
+.TP
+Basic scan:
+.B xnLinkFinder -i https://example.com -o results.txt
+.TP
+Security scanning:
+.B xnLinkFinder -i urls.txt --scan-cors --scan-jwt
+.TP
+Server mode:
+.B xnLinkFinder --server --server-port 8080
+.SH SEE ALSO
+Full documentation at: https://github.com/ZeidMahmoud/xnLinkFinder-Z
+.SH AUTHOR
+@xnl-h4ck3r, Enhanced by ZeidMahmoud
