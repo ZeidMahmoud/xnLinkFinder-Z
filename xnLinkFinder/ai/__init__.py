@@ -7,6 +7,10 @@ This module provides artificial intelligence and machine learning capabilities i
 - Semantic similarity deduplication
 - Predictive endpoint discovery
 - Smart prioritization engine
+- Vulnerability prediction
+- Smart deduplication
+- Natural language queries
+- Anomaly detection
 """
 
 __all__ = [
@@ -15,4 +19,8 @@ __all__ = [
     'semantic_dedup',
     'predictive_discovery',
     'priority_engine',
+    'vulnerability_predictor',
+    'smart_dedup',
+    'nlp_query',
+    'anomaly_detector',
 ]
