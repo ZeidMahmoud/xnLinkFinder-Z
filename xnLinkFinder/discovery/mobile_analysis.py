@@ -13,8 +13,20 @@ class MobileAnalyzer:
         """Extract endpoints from Android APK."""
         endpoints = []
         try:
-            # Simple string extraction (requires apktool/jadx in PATH)
-            result = subprocess.run(['strings', apk_path], capture_output=True, text=True, timeout=60)
+            import os
+            # Validate path to prevent command injection
+            if not os.path.isfile(apk_path):
+                logger.error(f"APK file not found: {apk_path}")
+                return endpoints
+            
+            # Simple string extraction (requires strings in PATH)
+            result = subprocess.run(
+                ['strings', apk_path],
+                capture_output=True,
+                text=True,
+                timeout=60,
+                check=False
+            )
             for line in result.stdout.split('\n'):
                 if 'http' in line.lower() or 'api' in line.lower():
                     endpoints.append(line.strip())
@@ -26,7 +38,19 @@ class MobileAnalyzer:
         """Extract endpoints from iOS IPA."""
         endpoints = []
         try:
-            result = subprocess.run(['strings', ipa_path], capture_output=True, text=True, timeout=60)
+            import os
+            # Validate path to prevent command injection
+            if not os.path.isfile(ipa_path):
+                logger.error(f"IPA file not found: {ipa_path}")
+                return endpoints
+            
+            result = subprocess.run(
+                ['strings', ipa_path],
+                capture_output=True,
+                text=True,
+                timeout=60,
+                check=False
+            )
             for line in result.stdout.split('\n'):
                 if 'http' in line.lower() or 'api' in line.lower():
                     endpoints.append(line.strip())

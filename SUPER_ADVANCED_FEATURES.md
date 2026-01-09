@@ -9,6 +9,11 @@ Integrate with Large Language Models (OpenAI GPT-4, Claude, Ollama) for intellig
 
 **Usage:**
 ```bash
+# Best practice: Use environment variables for API keys
+export OPENAI_API_KEY="your-key-here"
+xnLinkFinder -i target.com --use-llm --llm-provider openai
+
+# Alternative: Pass directly (not recommended - visible in process list)
 xnLinkFinder -i target.com --use-llm --llm-provider openai --llm-api-key YOUR_KEY
 ```
 
@@ -207,6 +212,11 @@ Find exposed endpoints in public repositories.
 
 **Usage:**
 ```bash
+# Best practice: Use environment variables
+export GITHUB_TOKEN="your-token-here"
+xnLinkFinder -i target.com --github-search
+
+# Alternative: Pass directly (not recommended)
 xnLinkFinder -i target.com --github-search --github-token YOUR_TOKEN
 ```
 
@@ -239,6 +249,11 @@ Search engine integration for exposed services.
 
 **Usage:**
 ```bash
+# Best practice: Use environment variables
+export SHODAN_API_KEY="your-key-here"
+xnLinkFinder -i target.com --shodan
+
+# Alternative: Pass directly (not recommended)
 xnLinkFinder -i target.com --shodan --shodan-key YOUR_KEY
 ```
 

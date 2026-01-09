@@ -285,9 +285,9 @@ class NeuralDetector:
         """Check if code appears to be minified."""
         # Simple heuristic: check average line length
         lines = code.split('\n')
-        if not lines:
+        if not lines or len(lines) == 0 or all(not line for line in lines):
             return False
-        avg_line_length = sum(len(line) for line in lines) / len(lines)
+        avg_line_length = sum(len(line) for line in lines) / max(len(lines), 1)
         return avg_line_length > 200
     
     def _calculate_obfuscation_score(self, code: str) -> float:

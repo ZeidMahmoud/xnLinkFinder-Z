@@ -42,8 +42,11 @@ class NucleiGenerator:
         Returns:
             Dictionary representing Nuclei template
         """
+        import hashlib
+        # Use hashlib for consistent hashing
+        endpoint_hash = hashlib.md5(endpoint.encode()).hexdigest()[:8]
         template = {
-            'id': f"xnlinkfinder-{vuln_type}-{hash(endpoint) & 0xFFFFFFFF}",
+            'id': f"xnlinkfinder-{vuln_type}-{endpoint_hash}",
             'info': {
                 'name': f"{vuln_type.upper()} Test for {endpoint}",
                 'author': 'xnLinkFinder-Z',

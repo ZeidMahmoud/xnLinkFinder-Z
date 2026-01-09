@@ -15,14 +15,14 @@ class Dashboard:
         """Start the dashboard server."""
         try:
             from flask import Flask, render_template
-            app = Flask(__name__)
+            self.app = Flask(__name__)
             
-            @app.route('/')
+            @self.app.route('/')
             def index():
                 return "<h1>xnLinkFinder-Z Dashboard</h1><p>Real-time monitoring placeholder</p>"
             
             logger.info(f"Starting dashboard on port {self.port}")
-            app.run(port=self.port)
+            self.app.run(port=self.port, debug=False)
         except ImportError:
             logger.error("Flask not installed, dashboard unavailable")
         except Exception as e:
