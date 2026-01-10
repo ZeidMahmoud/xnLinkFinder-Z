@@ -100,3 +100,7 @@ passlib>=1.7.4
 # UI Enhancements
 questionary>=2.0.0
 prompt-toolkit>=3.0.0
+
+# Additional for new features
+censys>=2.2.0  # Censys integration
+
